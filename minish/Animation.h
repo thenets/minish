@@ -1,5 +1,5 @@
 #pragma once
-class Animation
-{
-};
+
+#include <raylib.h>
+#include "Ded.h"
 
