@@ -1,36 +1,47 @@
 #pragma once
 
+#include <vector>
 #include <raylib.h>
 
 namespace Ded {
-	struct Texture
+	class Texture
 	{
-		Texture(const char* a_textureFilePath, int a_textureScale);
-		int GetScale();
-		Texture2D* GetTexture();
-
-	private:
 		int textureScale;
 		const char* textureFilePath;
 		Texture2D texture;
+
+	public:
+		Texture(const char* a_textureFilePath, int a_textureScale);
+		int GetScale();
+		Texture2D* GetTexture();
 	};
 
 	// --
 
-	struct Animation
+	struct AnimationState
 	{
-		Animation(Ded::Texture* a_texture, int a_currentState, ::Rectangle a_sourceRec, ::Rectangle a_destRec);
-		void SetState(int a_stateID);
-		void Render();
-
-	private:
-		Ded::Texture* texture;
+		const char* name;
+		int totalOfFrames;
+		int jumpSizeInPixels;
+		float frameSkipTime;
 		::Rectangle sourceRec;
 		::Rectangle destRec;
+	};
+	class Animation
+	{
+		Ded::Texture* texture;
 		int textureScale;
 		int currentFrame;
-		int currentState;
+		Ded::AnimationState* currentState;
 		float deltaTime;
+		std::vector<Ded::AnimationState> statesList;
+
+	public:
+		Animation(Ded::Texture* a_texture);
+		void SetState(const char* a_name);
+		Ded::AnimationState* GetState();
+		void AddState(const char* a_name, int a_totalOfFrames, int a_jumpSizeInPixels, float a_frameSkipTime, ::Rectangle a_sourceRec, ::Rectangle a_destRec);
+		void Render();
 	};
 
 }
