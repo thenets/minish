@@ -14,11 +14,16 @@ Ded::Animation::Animation(Ded::Texture* a_texture)
 
 void Ded::Animation::SetState(const char* a_name)
 {
+	if (currentState != nullptr and currentState->name == a_name)
+	{
+		return;
+	}
 	for (unsigned int i = 0; i < statesList.size(); i++)
 	{
 		if (statesList[i].name == a_name)
 		{
 			currentState = &statesList[i];
+			currentFrame = 0;
 			return;
 		}
 	}
@@ -61,7 +66,7 @@ void Ded::Animation::Render()
 
 		// Source position from texture
 		Rectangle{
-			(float)(currentState->sourceRec.x * textureScale + nextFrameJump),
+			(float)( (currentState->sourceRec.x * textureScale) + nextFrameJump),
 			(float)(currentState->sourceRec.y * textureScale),
 			(float)(currentState->sourceRec.width * textureScale),
 			(float)(currentState->sourceRec.height * textureScale)
