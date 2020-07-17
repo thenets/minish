@@ -23,7 +23,7 @@ int main()
 	heroAnimation.AddState("idle_left", 3, 32, 0.2f, Rectangle{ 32, 64, 32, 32 }, Rectangle{ 100, 100, 32, 32 });
 	heroAnimation.AddState("idle_right", 3, 32, 0.2f, Rectangle{ 32, 96, 32, 32 }, Rectangle{ 100, 100, 32, 32 });
 	heroAnimation.AddState("idle_back", 1, 32, 0.2f, Rectangle{ 32, 128, 32, 32 }, Rectangle{ 100, 100, 32, 32 });
-	heroAnimation.AddState("walking_front", 10, 32, 0.07f, Rectangle{ 128, 32,  32, 32 }, Rectangle{ 100, 100, 32, 32 });
+	heroAnimation.AddState("walking_front", 10, 32, 0.27f, Rectangle{ 128, 32,  32, 32 }, Rectangle{ 100, 100, 32, 32 });
 	heroAnimation.AddState("walking_left", 10, 32, 0.07f, Rectangle{ 128, 64, 32, 32 }, Rectangle{ 100, 100, 32, 32 });
 	heroAnimation.AddState("walking_right", 10, 32, 0.07f, Rectangle{ 128, 96, 32, 32 }, Rectangle{ 100, 100, 32, 32 });
 	heroAnimation.AddState("walking_back", 10, 32, 0.07f, Rectangle{ 128, 128, 32, 32 }, Rectangle{ 100, 100, 32, 32 });
